@@ -3,4 +3,11 @@ class Breed{
   final String breed;
 
   Breed({this.id, this.breed});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'breed': breed,
+    };
+  }
 }
