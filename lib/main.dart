@@ -103,6 +103,12 @@ class _HomeState extends State<Home> {
         ),
       ),
       body: currentBody,
+      //TODO: add the on pressed action
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+      ),
     );
   }
 }
