@@ -4,7 +4,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:cats_weight_history/utils/database_constants.dart';
 
 class BreedDao {
-
   Future<void> insertBreed(Breed breed) async {
     final Database db = await DatabaseHelper().database;
 
@@ -13,6 +12,19 @@ class BreedDao {
       breed.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  Future<List<Breed>> getAllBreeds() async {
+    final Database db = await DatabaseHelper().database;
+
+    final List<Map<String, dynamic>> maps = await db.query('$breedTableName');
+
+    return List.generate(maps.length, (i) {
+      return Breed(
+        id: maps[i]['id'],
+        breed: maps[i]['breed'],
+      );
+    });
   }
 
 }
