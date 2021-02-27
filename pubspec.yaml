@@ -29,6 +29,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
 
+  # SQLite wrapper
+  sqflite: ^1.3.2+3
+
+  #plugin for finding filesystem location for Android and iOS systems
+  path_provider: ^1.6.27
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

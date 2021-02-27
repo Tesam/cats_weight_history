@@ -30,6 +30,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Widget currentBody = Cat();
+  //TODO: change the currentFABDialog to CatDialog()
   Widget currentFABDialog = BreedDialog();
   String title = 'Cats';
 
@@ -115,7 +116,6 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: currentBody,
-        //TODO: add the on pressed action
         floatingActionButton: FloatingActionButton(
           child: Icon( Icons.add, ),
           onPressed: () { showFABDialog(); },
