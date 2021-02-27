@@ -29,12 +29,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Widget currentBody = Cat();
+  String title = 'Cats';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cats'),
+        title: Text(title),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -64,6 +65,7 @@ class _HomeState extends State<Home> {
                 setState(() {
                   Navigator.of(context).pop();
                   currentBody = Cat();
+                  title = 'Cats';
                 });
               },
             ),
@@ -78,12 +80,13 @@ class _HomeState extends State<Home> {
                 setState(() {
                   Navigator.of(context).pop();
                   currentBody = WeightHistory();
+                  title = 'Weight History';
                 });
               },
             ),
             ListTile(
               title: Text(
-                'Breed',
+                'Breeds',
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -92,6 +95,7 @@ class _HomeState extends State<Home> {
                 setState(() {
                   Navigator.of(context).pop();
                   currentBody = Breed();
+                  title = 'Breeds';
                 });
               },
             ),
