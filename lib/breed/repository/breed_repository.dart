@@ -5,4 +5,6 @@ class BreedRepository {
   final breedDao = BreedDao();
 
   Future insertBreed(Breed breed) => breedDao.insertBreed(breed);
+
+  Future getAllBreeds() => breedDao.getAllBreeds();
 }
