@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class BreedDialog extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final _breedNameFormController = TextEditingController();
   final breedBloc = BreedBloc();
 
   @override
@@ -40,6 +41,13 @@ class BreedDialog extends StatelessWidget {
                       labelText: 'Breed',
                       hintText: 'Enter the breed',
                     ),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some breed';
+                      }
+                      return null;
+                    },
+                    controller: _breedNameFormController,
                   ),
                 ),
                 Padding(
@@ -47,8 +55,9 @@ class BreedDialog extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       if (_formKey.currentState.validate()) {
-                        _formKey.currentState.save();
-                        final newBreed = Breed(breed: 'Bombay');
+                        final newBreed = Breed(
+                            breed: _breedNameFormController.value.text,);
+
                         breedBloc.insertBreed(newBreed);
                         Navigator.pop(context);
                       }
