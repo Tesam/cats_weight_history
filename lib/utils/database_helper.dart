@@ -18,6 +18,14 @@ class DatabaseHelper {
     return _databaseHelper;
   }
 
+  _onCreate(Database db, int version) async {
+    // Database is created, create the table
+    await db.execute('$breedCreateSql');
+    await db.execute('$catCreateSql');
+    await db.execute('$weightHistoryCreateSql');
+    await db.execute('$weightHistoryDetailCreateSql');
+  }
+
   Future<Database> initializeDatabase() async {
     var database;
     // Get the directory path for both Android and iOS to store database.
@@ -35,12 +43,7 @@ class DatabaseHelper {
 
     //Create tables
     database = await openDatabase(path, version: 1, onCreate: (db, version) {
-      return db.execute('''
-            $breedCreateSql 
-            $catCreateSql
-            $weightHistoryCreateSql
-            $weightHistoryDetailCreateSql
-            ''');
+      return _onCreate(db,version);
     });
 
     return database;
