@@ -2,7 +2,7 @@ import 'package:cats_weight_history/breed/breed.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Cat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
