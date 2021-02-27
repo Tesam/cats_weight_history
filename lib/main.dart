@@ -89,8 +89,10 @@ class _HomeState extends State<Home> {
                 ),
               ),
               onTap: () {
-                Navigator.of(context).pop();
-                currentBody = Breed();
+                setState(() {
+                  Navigator.of(context).pop();
+                  currentBody = Breed();
+                });
               },
             ),
           ],
