@@ -1,7 +1,10 @@
+import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
+import 'package:cats_weight_history/breed/model/breed.dart';
 import 'package:flutter/material.dart';
 
 class BreedDialog extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final breedBloc = BreedBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +48,9 @@ class BreedDialog extends StatelessWidget {
                     onTap: () {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
+                        final newBreed = Breed(breed: 'Bombay');
+                        breedBloc.insertBreed(newBreed);
+                        Navigator.pop(context);
                       }
                     },
                     child: Container(
