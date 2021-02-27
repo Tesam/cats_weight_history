@@ -13,7 +13,6 @@ const String breedCreateSql = '''
   CREATE TABLE IF NOT EXISTS $breedTableName( 
     id integer, 
     breed text NOT NULL, 
-    breed text NOT NULL, 
     PRIMARY KEY(id AUTOINCREMENT)
   ); 
   ''';
