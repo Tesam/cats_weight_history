@@ -1,3 +1,4 @@
+import 'package:cats_weight_history/breed/breed.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,11 @@ class Home extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Breed()));
+              },
             ),
           ],
         ),
