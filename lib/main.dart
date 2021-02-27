@@ -1,4 +1,4 @@
-import 'package:cats_weight_history/breed/breed.dart';
+import 'file:///C:/Users/Bryan/AndroidStudioProjects/cats_weight_history/lib/breed/ui/screen/breed.dart';
 import 'package:cats_weight_history/breed/ui/widget/breed_dialog.dart';
 import 'package:cats_weight_history/cat/cat.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
