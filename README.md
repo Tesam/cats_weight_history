@@ -1,6 +1,6 @@
 # cats_weight_history
 
-A Flutter application, to show how to use SQLite whit Moor, recording cat weight history.
+A Flutter application, to show how to use SQLite, recording cat weight history.
 
 ## Getting Started
 
