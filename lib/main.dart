@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   setState(() {
                     Navigator.of(context).pop();
-                    currentBody = Breed();
+                    currentBody = BreedScreen();
                     currentFABDialog = BreedDialog();
                     title = 'Breeds';
                   });
