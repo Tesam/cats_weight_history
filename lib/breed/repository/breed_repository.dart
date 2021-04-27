@@ -6,5 +6,5 @@ class BreedRepository {
 
   Future insertBreed(Breed breed) => breedDao.insertBreed(breed);
 
-  Future getAllBreeds() => breedDao.getAllBreeds();
+  Future<dynamic> getAllBreeds() => breedDao.getAllBreeds();
 }

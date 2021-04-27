@@ -14,7 +14,7 @@ class BreedDao {
     );
   }
 
-  Future<List<Breed>> getAllBreeds() async {
+  Future<dynamic> getAllBreeds() async {
     final Database db = await DatabaseHelper().database;
 
     final List<Map<String, dynamic>> maps = await db.query('$breedTableName');

@@ -2,14 +2,19 @@ import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
 import 'package:cats_weight_history/breed/model/breed.dart';
 import 'package:flutter/material.dart';
 
-class BreedScreen extends StatelessWidget {
+class BreedScreen extends StatefulWidget {
+  @override
+  _BreedScreenState createState() => _BreedScreenState();
+}
+
+class _BreedScreenState extends State<BreedScreen> {
   final breedBloc = BreedBloc();
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: breedBloc.breeds,
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
+    return StreamBuilder(
+        stream: breedBloc.breeds,
+        builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
             return (getBreedCardWidget(snapshot));
           } else {
@@ -18,7 +23,9 @@ class BreedScreen extends StatelessWidget {
         });
   }
 
-  Widget getBreedCardWidget(AsyncSnapshot snapshot) {
+
+
+  Widget getBreedCardWidget(snapshot) {
     return snapshot.data.length != 0
         ? ListView.builder(
             itemCount: snapshot.data.length,
