@@ -1,3 +1,4 @@
+import 'package:cats_weight_history/breed/ui/widget/breed_delete_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
@@ -48,9 +49,10 @@ class _BreedScreenState extends State<BreedScreen> {
               return Card(
                 child: ListTile(
                   title: Text(breed.breed),
-                  trailing: Icon(
-                    Icons.delete,
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
                     color: Colors.red.shade400,
+                    onPressed: () => showBreedDeleteDialog(breed),
                   ),
                 ),
               );
@@ -73,6 +75,15 @@ class _BreedScreenState extends State<BreedScreen> {
         context: context,
         builder: (BuildContext context) {
           return BreedAddDialog(breedBloc: breedBloc,);
+        }
+    );
+  }
+
+  Future<dynamic> showBreedDeleteDialog(Breed breed) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return BreedDeleteDialog(breedBloc: breedBloc, breed: breed);
         }
     );
   }
