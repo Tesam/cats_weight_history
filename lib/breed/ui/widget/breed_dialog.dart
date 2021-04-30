@@ -3,9 +3,12 @@ import 'package:cats_weight_history/breed/model/breed.dart';
 import 'package:flutter/material.dart';
 
 class BreedDialog extends StatelessWidget {
+  final BreedBloc breedBloc;
+  BreedDialog({this.breedBloc});
+
   final _formKey = GlobalKey<FormState>();
   final _breedNameFormController = TextEditingController();
-  final breedBloc = BreedBloc();
+  //final breedBloc = BreedBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +61,8 @@ class BreedDialog extends StatelessWidget {
                         final newBreed = Breed(
                             breed: _breedNameFormController.value.text,);
 
-                        breedBloc.insertBreed(newBreed);
+                        //breedBloc.insertBreed(newBreed);
+                        _addBreed(newBreed);
                         Navigator.pop(context);
                       }
                     },
@@ -83,5 +87,12 @@ class BreedDialog extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _addBreed(Breed breed) async {
+
+    // Add this newly created note to the add note stream. Doing this
+    // will trigger the listener in `notes_bloc.dart` and call `_handleAddNote`.
+    breedBloc.inAddBreed.add(breed);
   }
 }

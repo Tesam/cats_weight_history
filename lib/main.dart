@@ -1,4 +1,5 @@
 import 'file:///C:/Users/Bryan/AndroidStudioProjects/cats_weight_history/lib/breed/ui/screen/breed_screen.dart';
+import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
 import 'package:cats_weight_history/breed/ui/widget/breed_dialog.dart';
 import 'package:cats_weight_history/cat/cat.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
@@ -30,21 +31,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Widget currentBody = Cat();
-  //TODO: change the currentFABDialog to CatDialog()
-  Widget currentFABDialog = BreedDialog();
   String title = 'Cats';
-
-  Future<dynamic> showFABDialog() {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return currentFABDialog;
-        }
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
+    final breedBloc = BreedBloc();
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
@@ -107,7 +98,6 @@ class _HomeState extends State<Home> {
                   setState(() {
                     Navigator.of(context).pop();
                     currentBody = BreedScreen();
-                    currentFABDialog = BreedDialog();
                     title = 'Breeds';
                   });
                 },
@@ -116,9 +106,6 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: currentBody,
-        floatingActionButton: FloatingActionButton(
-          child: Icon( Icons.add, ),
-          onPressed: () { showFABDialog(); },
-        ));
+    );
   }
 }

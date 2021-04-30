@@ -1,5 +1,6 @@
 import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
 import 'package:cats_weight_history/breed/model/breed.dart';
+import 'package:cats_weight_history/breed/ui/widget/breed_dialog.dart';
 import 'package:flutter/material.dart';
 
 class BreedScreen extends StatefulWidget {
@@ -11,19 +12,30 @@ class _BreedScreenState extends State<BreedScreen> {
   final breedBloc = BreedBloc();
 
   @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: breedBloc.breeds,
-        builder: (BuildContext context, snapshot) {
-          if (snapshot.hasData) {
-            return (getBreedCardWidget(snapshot));
-          } else {
-            return CircularProgressIndicator(); // Display a Circular Progress Indicator if the data is not fetched
-          }
-        });
+  void dispose() {
+    breedBloc.dispose();
+    super.dispose();
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: StreamBuilder(
+          stream: breedBloc.breeds,
+          builder: (BuildContext context, snapshot) {
+            if (snapshot.hasData) {
+              return (getBreedCardWidget(snapshot));
+            } else {
+              return CircularProgressIndicator(); // Display a Circular Progress Indicator if the data is not fetched
+            }
+          }),
+      floatingActionButton: FloatingActionButton(
+        child: Icon( Icons.add, ),
+        onPressed: () => showBreedAddDialog(),
+      )
+    );
 
+  }
 
   Widget getBreedCardWidget(snapshot) {
     return snapshot.data.length != 0
@@ -52,5 +64,14 @@ class _BreedScreenState extends State<BreedScreen> {
               ),
             ),
           ));
+  }
+
+  Future<dynamic> showBreedAddDialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return BreedDialog(breedBloc: breedBloc,);
+        }
+    );
   }
 }
