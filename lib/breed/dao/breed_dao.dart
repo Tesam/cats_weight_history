@@ -28,4 +28,14 @@ class BreedDao {
     });
   }
 
+  Future<void> deleteBreed(int id) async {
+    final Database db = await DatabaseHelper().database;
+
+    await db.delete(
+      '$breedTableName',
+      where: "id = ?",
+      whereArgs: [id],
+    );
+  }
+
 }
