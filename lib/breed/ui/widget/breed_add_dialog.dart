@@ -2,9 +2,9 @@ import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
 import 'package:cats_weight_history/breed/model/breed.dart';
 import 'package:flutter/material.dart';
 
-class BreedDialog extends StatelessWidget {
+class BreedAddDialog extends StatelessWidget {
   final BreedBloc breedBloc;
-  BreedDialog({this.breedBloc});
+  BreedAddDialog({this.breedBloc});
 
   final _formKey = GlobalKey<FormState>();
   final _breedNameFormController = TextEditingController();

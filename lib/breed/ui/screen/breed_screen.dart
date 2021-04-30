@@ -1,6 +1,6 @@
 import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
 import 'package:cats_weight_history/breed/model/breed.dart';
-import 'package:cats_weight_history/breed/ui/widget/breed_dialog.dart';
+import 'package:cats_weight_history/breed/ui/widget/breed_add_dialog.dart';
 import 'package:flutter/material.dart';
 
 class BreedScreen extends StatefulWidget {
@@ -70,7 +70,7 @@ class _BreedScreenState extends State<BreedScreen> {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
-          return BreedDialog(breedBloc: breedBloc,);
+          return BreedAddDialog(breedBloc: breedBloc,);
         }
     );
   }

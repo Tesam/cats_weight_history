@@ -1,6 +1,4 @@
-import 'file:///C:/Users/Bryan/AndroidStudioProjects/cats_weight_history/lib/breed/ui/screen/breed_screen.dart';
-import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
-import 'package:cats_weight_history/breed/ui/widget/breed_dialog.dart';
+import 'package:cats_weight_history/breed/ui/screen/breed_screen.dart';
 import 'package:cats_weight_history/cat/cat.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +33,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final breedBloc = BreedBloc();
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
