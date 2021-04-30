@@ -7,4 +7,6 @@ class BreedRepository {
   Future insertBreed(Breed breed) => breedDao.insertBreed(breed);
 
   Future<dynamic> getAllBreeds() => breedDao.getAllBreeds();
+
+  Future deleteBreed(int id) => breedDao.deleteBreed(id);
 }
