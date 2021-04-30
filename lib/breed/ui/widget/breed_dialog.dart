@@ -8,13 +8,12 @@ class BreedDialog extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
   final _breedNameFormController = TextEditingController();
-  //final breedBloc = BreedBloc();
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       content: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         children: <Widget>[
           Positioned(
             right: -40.0,
@@ -90,9 +89,6 @@ class BreedDialog extends StatelessWidget {
   }
 
   void _addBreed(Breed breed) async {
-
-    // Add this newly created note to the add note stream. Doing this
-    // will trigger the listener in `notes_bloc.dart` and call `_handleAddNote`.
     breedBloc.inAddBreed.add(breed);
   }
 }
