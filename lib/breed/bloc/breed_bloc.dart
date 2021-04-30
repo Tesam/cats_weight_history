@@ -29,6 +29,12 @@ class BreedBloc {
     return _breedsController.stream;
   }
 
+  deleteBreed(int id) async {
+    await _breedRepository.deleteBreed(id);
+
+    getBreeds();
+  }
+
   dispose(){
     _breedsController.close();
     _addBreedController.close();
