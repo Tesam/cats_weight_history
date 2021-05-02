@@ -8,5 +8,7 @@ class BreedRepository {
 
   Future<dynamic> getAllBreeds() => breedDao.getAllBreeds();
 
+  Future updateBreed(Breed breed) => breedDao.updateBreed(breed);
+
   Future deleteBreed(int id) => breedDao.deleteBreed(id);
 }
