@@ -11,6 +11,9 @@ class BreedBloc {
   final _addBreedController = StreamController<Breed>.broadcast();
   StreamSink<Breed> get inAddBreed => _addBreedController.sink;
 
+  final _updateBreedController = StreamController<Breed>.broadcast();
+  StreamSink<Breed> get inUpdateNote => _updateBreedController.sink;
+
   final _deleteBreedController = StreamController<int>.broadcast();
   StreamSink<int> get inDeleteBreed => _deleteBreedController.sink;
 
@@ -23,6 +26,7 @@ class BreedBloc {
   BreedBloc() {
     getBreeds();
     _addBreedController.stream.listen(insertBreed);
+    _updateBreedController.stream.listen(updateBreed);
     _deleteBreedController.stream.listen(deleteBreed);
   }
 
@@ -37,6 +41,10 @@ class BreedBloc {
     _breedsController.add(breedList);
 
     return _breedsController.stream;
+  }
+
+  void updateBreed(Breed breed) async {
+    await _breedRepository.updateBreed(breed);
   }
 
   deleteBreed(int id) async {
@@ -54,6 +62,7 @@ class BreedBloc {
     _addBreedController.close();
     _deleteBreedController.close();
     _deletedBreedController.close();
+    _updateBreedController.close();
   }
 
 }
