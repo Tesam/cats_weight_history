@@ -28,6 +28,17 @@ class BreedDao {
     });
   }
 
+  Future<void> updateBreed(Breed breed) async {
+    final Database db = await DatabaseHelper().database;
+
+    await db.update(
+      '$breedTableName',
+      breed.toMap(),
+      where: "id = ?",
+      whereArgs: [breed.id],
+    );
+  }
+
   Future<void> deleteBreed(int id) async {
     final Database db = await DatabaseHelper().database;
 
