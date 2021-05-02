@@ -78,9 +78,24 @@ class BreedDeleteDialog extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _deleteBreed(breed.id, context);
+          },
         ),
       ],
     );
+  }
+
+  void _deleteBreed(int id, BuildContext context) {
+
+    breedBloc.inDeleteBreed.add(id);
+
+    // Wait for `deleted` to be set before popping back the dialog. This guarantees there's no
+    // mismatch between what's stored in the database and what's being displayed on the page.
+    breedBloc.deleted.listen((deleted) {
+      if (deleted) {
+        Navigator.pop(context);
+      }
+    });
   }
 }
