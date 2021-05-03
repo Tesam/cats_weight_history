@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:cats_weight_history/breed/ui/screen/breed_screen.dart';
-import 'package:cats_weight_history/cat/cat.dart';
+import 'package:cats_weight_history/cat/ui/screen/cat.dart';
 import 'package:cats_weight_history/weight_history/weight_history.dart';
 
 void main() {
