@@ -24,7 +24,7 @@ class BreedDeleteDialog extends StatelessWidget {
               },
               child: CircleAvatar(
                 child: Icon(Icons.close),
-                backgroundColor: Colors.green.shade500,
+                backgroundColor: Colors.red.shade500,
               ),
             ),
           ),
