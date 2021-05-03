@@ -6,8 +6,8 @@ class Breed{
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'breed': breed,
+      "id": id,
+      "breed": breed,
     };
   }
 }
