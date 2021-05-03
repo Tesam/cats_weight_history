@@ -28,7 +28,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Widget currentBody = Cat();
+  Widget currentBody = CatScreen();
   String title = 'Cats';
 
   @override
@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   setState(() {
                     Navigator.of(context).pop();
-                    currentBody = Cat();
+                    currentBody = CatScreen();
                     title = 'Cats';
                   });
                 },
