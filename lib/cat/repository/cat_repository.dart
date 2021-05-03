@@ -6,5 +6,5 @@ class CatRepository {
 
   Future insertCat(Cat cat) => catDao.insertCat(cat);
 
-  Future<dynamic> getAllBreeds() => catDao.getAllCats();
+  Future<dynamic> getAllCats() => catDao.getAllCats();
 }
