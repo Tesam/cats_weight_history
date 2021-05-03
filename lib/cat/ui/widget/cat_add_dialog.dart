@@ -36,13 +36,51 @@ class CatAddDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 66,
+                    child: InputDecorator(
+                      expands: false,
+                      decoration: InputDecoration(
+                        labelText: 'Breed',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      child: DropdownButton<String>(
+                        isExpanded: true,
+                        value: "Americano",
+                        icon: const Icon(Icons.keyboard_arrow_down_sharp),
+                        iconSize: 24,
+                        elevation: 16,
+                        style: const TextStyle(
+                          color: Colors.black,
+                        ),
+                        underline: SizedBox.shrink(),
+                        onChanged: (value) {
+                        },
+                        items: ["Americano", "Persa", "Tricolor"]
+                            .map((e) => e)
+                            .toList()
+                            .map<DropdownMenuItem<String>>(
+                                (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
                       border: OutlineInputBorder(),
-                      labelText: 'Cat',
+                      labelText: 'Cat name',
                       hintText: 'Enter the cat name',
                     ),
                     validator: (value) {
