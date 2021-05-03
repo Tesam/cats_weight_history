@@ -47,12 +47,16 @@ class BreedDeleteDialog extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                     text: "Would you like to delete the ",
-                    style: DefaultTextStyle.of(context).style,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.black87,
+                    ),
                     children: [
                       TextSpan(
                         text: "${breed.breed} ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
                         ),
                       ),
                       TextSpan(
