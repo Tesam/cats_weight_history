@@ -1,4 +1,5 @@
 import 'package:cats_weight_history/breed/ui/widget/breed_delete_dialog.dart';
+import 'package:cats_weight_history/breed/ui/widget/breed_update_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cats_weight_history/breed/bloc/breed_bloc.dart';
@@ -54,6 +55,7 @@ class _BreedScreenState extends State<BreedScreen> {
                     color: Colors.red.shade400,
                     onPressed: () => showBreedDeleteDialog(breed),
                   ),
+                  onTap: () => showBreedUpdateDialog(breed),
                 ),
               );
             },
@@ -75,6 +77,15 @@ class _BreedScreenState extends State<BreedScreen> {
         context: context,
         builder: (BuildContext context) {
           return BreedAddDialog(breedBloc: breedBloc,);
+        }
+    );
+  }
+
+  Future<dynamic> showBreedUpdateDialog(Breed breed) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return BreedUpdateDialog(breedBloc: breedBloc, breed: breed,);
         }
     );
   }
