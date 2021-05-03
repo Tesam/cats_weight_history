@@ -1,5 +1,6 @@
 import 'package:cats_weight_history/cat/bloc/cat_bloc.dart';
 import 'package:cats_weight_history/cat/model/cat.dart';
+import 'package:cats_weight_history/cat/ui/widget/cat_add_dialog.dart';
 import 'package:flutter/material.dart';
 
 class CatScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CatScreenState extends State<CatScreen> {
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon( Icons.add, ),
-          onPressed: () => {},
+          onPressed: () => showCatAddDialog(),
       )
     );
   }
@@ -64,5 +65,14 @@ class _CatScreenState extends State<CatScreen> {
             ),
           ),
         ));
+  }
+
+  Future<dynamic> showCatAddDialog() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CatAddDialog(catBloc: catBloc,);
+        }
+    );
   }
 }
