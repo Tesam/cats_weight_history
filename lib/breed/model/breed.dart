@@ -1,8 +1,11 @@
 class Breed{
-  final int id;
+  int? id;
   final String breed;
 
-  Breed({this.id, this.breed});
+  Breed({
+    this.id,
+    required this.breed
+  });
 
   Map<String, dynamic> toMap() {
     return {

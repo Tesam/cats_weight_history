@@ -7,7 +7,7 @@ class BreedDeleteDialog extends StatelessWidget {
   final BreedBloc breedBloc;
   final Breed breed;
 
-  BreedDeleteDialog({this.breedBloc, this.breed});
+  BreedDeleteDialog({required this.breedBloc, required this.breed});
 
   @override
   Widget build(BuildContext context) {
@@ -90,9 +90,10 @@ class BreedDeleteDialog extends StatelessWidget {
     );
   }
 
-  void _deleteBreed(int id, BuildContext context) {
-
-    breedBloc.inDeleteBreed.add(id);
+  void _deleteBreed(int? id, BuildContext context) {
+    if(id != null){
+      breedBloc.inDeleteBreed.add(id);
+    }
 
     // Wait for `deleted` to be set before popping back the dialog. This guarantees there's no
     // mismatch between what's stored in the database and what's being displayed on the page.

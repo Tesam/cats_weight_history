@@ -6,7 +6,7 @@ import 'package:cats_weight_history/cat/bloc/cat_bloc.dart';
 
 class CatAddDialog extends StatelessWidget {
   final CatBloc catBloc;
-  CatAddDialog({this.catBloc});
+  CatAddDialog({required this.catBloc});
 
   final _formKey = GlobalKey<FormState>();
   final _catNameFormController = TextEditingController();
@@ -83,8 +83,8 @@ class CatAddDialog extends StatelessWidget {
                       labelText: 'Cat name',
                       hintText: 'Enter the cat name',
                     ),
-                    validator: (value) {
-                      if (value.isEmpty) {
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
                         return 'Please enter some name';
                       }
                       return null;
@@ -96,7 +96,7 @@ class CatAddDialog extends StatelessWidget {
                     padding: EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
-                        if (_formKey.currentState.validate()) {
+                        if (_formKey.currentState!.validate()) {
                           final newCat = Cat(
                             breedId: 13,
                             cat: _catNameFormController.value.text,);

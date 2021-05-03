@@ -7,7 +7,7 @@ class CatBloc {
   final CatRepository _catRepository = CatRepository();
 
   final StreamController _catsController = new StreamController<List<Cat>>.broadcast();
-  Stream<List<Cat>> get cats => _catsController.stream;
+  Stream<dynamic> get cats => _catsController.stream;
 
   final _addCatController = StreamController<Cat>.broadcast();
   StreamSink<Cat> get inAddCat => _addCatController.sink;
@@ -23,7 +23,7 @@ class CatBloc {
     getCats();
   }
 
-  Future<Stream<List<Cat>>> getCats() async {
+  Future<Stream<dynamic>> getCats() async {
     List<Cat> catList = await _catRepository.getAllCats();
     _catsController.add(catList);
 

@@ -7,8 +7,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 
 class DatabaseHelper {
-  static DatabaseHelper _databaseHelper; // Singleton DatabaseHelper
-  static Database _database; // Singleton Database
+  static DatabaseHelper? _databaseHelper; // Singleton DatabaseHelper
+  static Database? _database; // Singleton Database
 
   DatabaseHelper._createInstance();
 
@@ -17,7 +17,7 @@ class DatabaseHelper {
       _databaseHelper = DatabaseHelper
           ._createInstance(); // This is executed only once, singleton object
     }
-    return _databaseHelper;
+    return _databaseHelper!;
   }
 
   _onCreate(Database db, int version) async {
@@ -55,6 +55,6 @@ class DatabaseHelper {
     if (_database == null) {
       _database = await initializeDatabase();
     }
-    return _database;
+    return _database!;
   }
 }

@@ -6,7 +6,7 @@ import 'package:cats_weight_history/breed/model/breed.dart';
 
 class BreedAddDialog extends StatelessWidget {
   final BreedBloc breedBloc;
-  BreedAddDialog({this.breedBloc});
+  BreedAddDialog({required this.breedBloc});
 
   final _formKey = GlobalKey<FormState>();
   final _breedNameFormController = TextEditingController();
@@ -46,7 +46,7 @@ class BreedAddDialog extends StatelessWidget {
                       hintText: 'Enter the breed',
                     ),
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Please enter some breed';
                       }
                       return null;
@@ -58,7 +58,7 @@ class BreedAddDialog extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
-                      if (_formKey.currentState.validate()) {
+                      if (_formKey.currentState!.validate()) {
                         final newBreed = Breed(
                             breed: _breedNameFormController.value.text,);
 

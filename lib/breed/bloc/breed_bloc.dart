@@ -6,7 +6,7 @@ import 'package:cats_weight_history/breed/repository/breed_repository.dart';
 class BreedBloc {
   final BreedRepository _breedRepository = BreedRepository();
   final StreamController _breedsController = new StreamController<List<Breed>>.broadcast();
-  Stream<List<Breed>> get breeds => _breedsController.stream;
+  Stream<dynamic> get breeds => _breedsController.stream;
 
   final _addBreedController = StreamController<Breed>.broadcast();
   StreamSink<Breed> get inAddBreed => _addBreedController.sink;
@@ -36,7 +36,7 @@ class BreedBloc {
     getBreeds();
   }
 
-  Future<Stream<List<Breed>>> getBreeds() async {
+  Future<Stream<dynamic>> getBreeds() async {
     List<Breed> breedList = await _breedRepository.getAllBreeds();
     _breedsController.add(breedList);
 
